@@ -1,0 +1,97 @@
+<meta charset="UTF-8">
+<div class="setAlign">
+<form novalidate name="frmCliente">
+<br><br>
+  <h4>Cadastro de Cliente</h4>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputNome">Nome</label>
+      <input type="text" class="form-control" name="txtNome" ng-model="cliente.nome" ng-minlength="3" required>
+      <span ng-show="frmCliente.txtNome.$error.required && frmCliente.txtNome.$dirty">
+	  	<label class="setFieldInvalid">Nome requerido.</label>    
+      </span>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputSobrenome">Sobrenome</label>
+      <input type="text" class="form-control" name="txtSobrenome" ng-model="cliente.sobrenome" ng-minlength="3" required>
+      <span ng-show="frmCliente.txtSobrenome.$error.required && frmCliente.txtSobrenome.$dirty">
+	  	<label class="setFieldInvalid">Sobrenome requerido.</label>    
+      </span>
+    </div>
+  </div>
+  <div class="form-row">
+  	<div class="form-group col-md-7">
+    	<label for="inputAddress">Endereço</label>
+    	<input type="text" class="form-control" id="inputAddress" name="txtEndereco" ng-model="cliente.endereco" placeholder="Rua João Pedro, nº 40" required>
+    	<span ng-show="frmCliente.txtEndereco.$error.required && frmCliente.txtEndereco.$dirty">
+	  	  <label class="setFieldInvalid">Endereço requerido.</label>    
+      </span>
+   	</div>
+   	<div class="form-group col-md-5">
+      <label for="inputPassword4">E-mail</label>
+      <input type="email" class="form-control" name="txtEmail" ng-model="cliente.email" placeholder="exemplo@exemplo.com.br">
+      <span ng-show="frmCliente.txtEmail.$error.email">
+	  	<label class="setFieldInvalid">E-mail inválido.</label>    
+      </span>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputTelefone">Telefone</label>
+      <input type="text" class="form-control" id="inputTelefone" name="txtTelefone" mask="(99) 99999-9999" ng-model="cliente.telefone" placeholder="(DDD) 00000-0000" required>
+      <span ng-show="frmCliente.txtTelefone.$error.required && frmCliente.txtTelefone.$dirty">
+	  	<label class="setFieldInvalid">Telefone requerido.</label>    
+      </span>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputCPF">CPF</label>
+      <input type="text" class="form-control" id="inputCPF" name="txtCPF" ng-model="cliente.cpf" mask="999.999.999-99" placeholder="000.000.000-00" required>
+      <span ng-show="frmCliente.txtCPF.$error.required && frmCliente.txtCPF.$dirty">
+	  	<label class="setFieldInvalid">CPF requerido.</label>    
+      </span>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputDate">Data de Nascimento</label>
+      <input type="text" class="form-control" id="inputDate" name="txtNascimento" mask="99/99/9999" ng-model="cliente.dataNascimento" placeholder="00/00/0000" required>
+      <span ng-show="frmCliente.txtNascimento.$error.required && frmCliente.txtNascimento.$dirty">
+	  	<label class="setFieldInvalid">Data de Nascimento requerido.</label>    
+      </span>
+  	</div>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-disabled="frmCliente.$invalid" ng-click="salvarCliente()">Salvar</button>
+  <button type="submit" class="btn btn-danger" ng-disabled="frmCliente.$invalid" ng-click="cancelarAlteracao()">Cancelar</button>
+
+</form>
+<br><br>
+  <div>
+  	<h4>Clientes</h4>
+	<table class="table table-bordered">
+  		<thead>
+    		<tr>
+      			<th>ID</th>
+      			<th>Nome</th>
+      			<th>Telefone</th>
+      			<th>Endereço</th>
+      			<th>CPF</th>
+      			<th>Data de Nascimento</th>
+      			<th>Configurações</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<tr ng-repeat="cli in clientes">
+      			<td>{{ cli.id }}</td>
+      			<td>{{ cli.nome + ' ' + cli.sobrenome }}</td>
+      			<td>{{ cli.telefone }}</td>
+      			<td>{{ cli.endereco }}</td>
+      			<td>{{ cli.cpf }}</td>
+      			<td>{{ cli.dataNascimento }}</td>
+      			<td>
+      				<input type="button" class="btn btn-danger" value="Excluir" ng-click="excluiCliente(cli)">
+	  				<input type="button" class="btn btn-warning" value="Alterar" ng-click="alterarCliente(cli)">
+	  				<a href="/clientes/{{ cli.id }}"><button class="btn btn-info">Detalhes</button></a>
+	  			</td>
+    		</tr>
+  		</tbody>
+	</table>
+  </div>
+</div>

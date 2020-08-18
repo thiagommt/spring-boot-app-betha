@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="appCliente">
+<head>
+<base href="/"/>
+<meta charset="UTF-8">
+<title>Aplicação Betha</title>
+<style type="text/css">
+img {
+	border-radius: 15%;
+}
+
+.setAlign {
+ 	margin-left : 10%;
+  	margin-right: 10%;
+  }
+  
+.setFieldInvalid {
+	color: #ff0000;
+}
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+</style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngMask/3.1.1/ngMask.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="./js/app.js"></script>
+<script src="./js/controller/main-controller.js"></script>
+<script src="./js/controller/login-controller.js"></script>
+<script src="./js/controller/cliente-controller.js"></script>
+<script src="./js/controller/cliente-detalhe-controller.js"></script>
+<body ng-controller="mainController">
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand mb-0" href="/">
+		<img src="./images/betha-logo.png" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">
+  		Aplicação Betha
+  </a>
+      	<ul class="navbar-nav mr-auto">  	
+    		<li class="nav-item">	
+  				<a class="nav-link" href="/clientes">Clientes</a>
+  			</li>
+  		</ul>	
+  <form class="form-inline">
+  	<a class="btn btn-primary" data-toggle="collapse" href="/login" role="button" aria-expanded="false" aria-controls="collapseExample">Login</a>
+  </form>
+</nav>
+	<div class="setAlign" ng-view="ng-view">
+	</div>
+</body>
+</html>
